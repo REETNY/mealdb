@@ -348,7 +348,7 @@ main{
 
 
 
-@media only screen and (max-width: 550px){
+@media only screen and (max-width: 600px){
 
     .app-header{
         padding: 0 5px;
@@ -390,11 +390,7 @@ main{
         width: 100%;
         height: 300px;
     }
-}
 
-
-
-@media only screen and (max-width: 600px){
     .bg_screen{
         position: absolute;
         top: 70px;
@@ -402,7 +398,7 @@ main{
         background: #eee;
         height: 0vh;
         width: 65vw;
-        overflow: hidden;
+        overflow:auto;
         z-index: 9;
         display: block;
         transition: height .3s ease-in-out;
@@ -431,35 +427,49 @@ main{
         margin-right: auto;
     }
 
-    #selectBox{
-        background: blue !important;
-    }
-
-    .selectBox{
-        height: fit-content;
-    }
-
-    .options{
-        position: absolute;
-        top: 32px !important;
-        overflow-y: auto !important;
-        display: flex;
-        flex-direction: column;
-        width: 60% !important;
-        height: fit-content;
-    }
-
     .second-form{
-        position: relative;
-        padding-left: 20px;
+        height: auto;
+        width: 90%;
+        max-width: 90%;
+        overflow: hidden;
         margin-top: 30px;
     }
 
-    .opt{
-        padding: 10px 20px !important;
+    .selectBox{
+        width: 100%;
     }
 
+    #selectBox{
+        width: 80%;
+        border: 1px solid black;
+        background: rgb(61, 61, 65) !important;
+        color: #fff;
+        margin-left: 20px;
+    }
+
+    .options{
+        width: 90% !important;
+        position: absolute;
+        top: 150px !important;
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        flex-direction: row;
+        padding: 0px 20px;
+        top: 0px;
+        overflow-y: auto;
+        row-gap: 5px;
+        column-gap: 10px;
+    }
+
+    .opt{
+        padding: 5px 10px !important;
+        background: #eef;
+        width: fit-content;
+    }
 }
+
+
 
 @media only screen and (min-width: 600px) and (max-width: 1000px){
     .form{
