@@ -1,0 +1,537 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+li{
+    list-style-type: none;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.app-cont{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.app-header{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    padding: 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(212, 202, 202);
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.form{
+    position: relative;
+    width: 45%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.hamburger{
+    display: none;
+}
+
+.bg_screen{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchbox{
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 33px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.searchbox::placeholder{
+    font-size: 18px;
+    color: palevioletred;
+}
+
+.submit{
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 18px;
+    border: 0;
+    background: none;
+    outline: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.app-body{
+    width: 100%;
+    height: auto;
+    padding: 30px 20px;
+}
+
+.first-section{
+    width: 90%;
+    display: block;
+    margin: 20px auto;
+}
+
+.swiper{
+    padding: 0px 0px 30px 0px !important;
+}
+
+.swiper-slide{
+    max-width: 90px;
+    min-height: 120px;
+    background: #fff;
+    position: relative;
+}
+
+.swiper-slide .remove{
+    position: absolute;
+    color: red;
+    font-size: 17px;
+    top: -5px;
+    right: -8px;
+    display: none;
+}
+
+.swiper-slide:hover > .remove{
+    display: block;
+}
+
+.swiper-slide .img-cont{
+    width: 100%;
+    height: 90px;
+}
+
+.swiper-slide .img-cont img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+.swiper-slide .favDishName{
+    width: 100%;
+    word-wrap: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    overflow: hidden;
+}
+
+.swiper-pagination{
+    display: block;
+}
+
+
+
+.second-section{
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+}
+
+.randDish{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 30px;
+    justify-content: center;
+}
+
+.dishCont{
+    width: 300px;
+    height: 240px;
+    display: grid;
+    row-gap: 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.dishImg-cont{
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+}
+
+.randomDish{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    background: #eee;
+    padding: 3px 5px;
+    border-radius: 12.5px;
+    font-weight: 700;
+}
+
+.dishImg-cont img{
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.dish-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5px;
+    height: 50px;
+    background: #eef;
+    overflow: hidden;
+}
+
+.dish-name{
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 600;
+    width: 70%;
+    word-wrap: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.liked{
+    font-size: 18px;
+    border: none;
+    background: none;
+    outline: none;
+    color: gainsboro;
+    cursor: pointer;
+}
+
+.pink{
+    color: palevioletred;
+}
+
+
+
+
+.overFlow{
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    background: #eee;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    padding: 30px 30px;
+    display: none;
+    visibility: hidden;
+}
+
+.close{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(241, 48, 48);
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.meal-category{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    margin-bottom: 20px;
+}
+
+.category{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.categoryClass{
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.meal-name{
+    width: 100%;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.meal-pic{
+    width: 100%;
+    height: 500px;
+}
+
+.fitted{
+    width: 90%;
+    height: 100%;
+    display: block;
+    margin:  0 auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.meal-ingredients{
+    width: 90%;
+    display: block;
+    margin: 30px auto;
+}
+
+.spec{
+    margin-bottom: 10px;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.ingredients{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding-left: 30px;
+}
+
+.meal-instruction{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+
+.instruct{
+    font-size: 21px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.instruction{
+    font-size: 19px;
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.meal-video{
+    width: 90%;
+    margin: 30px auto 0 auto;
+}
+
+.meal-video iframe{
+    width: 80%;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+@media only screen and (max-width: 550px){
+
+    .app-header{
+        padding: 0 5px;
+    }
+
+    .logo{
+        font-size: 20px;
+    }
+
+    .form{
+        width: 60%;
+    }
+
+    .app-body{
+        padding: 30px 5px;
+    }
+
+    .first-section{
+        width: 95%;
+    }
+
+    .overFlow{
+        padding: 30px 5px;
+    }
+
+    .meal-pic{
+        height: 300px;
+    }
+
+    .fitted{
+        height: 300px;
+    }
+
+    .meal-video{
+        width: 95%;
+    }
+
+    .meal-video iframe{
+        width: 100%;
+        height: 300px;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px){
+    .bg_screen{
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #eee;
+        height: 0vh;
+        width: 65vw;
+        overflow: hidden;
+        z-index: 9;
+        display: block;
+        transition: height .3s ease-in-out;
+    }
+
+    .openHam{
+        height: 100vh;
+    }
+
+    .hamburger{
+        display: block;
+        font-size: 25px;
+        font-weight: bold;
+        background: none;
+        border: none;
+        width: fit-content;
+        outline: none;
+        z-index: 999;
+    }
+
+    .form{
+        width: 90%;
+        margin-top: 30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #selectBox{
+        background: blue !important;
+    }
+
+    .selectBox{
+        height: fit-content;
+    }
+
+    .options{
+        position: absolute;
+        top: 32px !important;
+        overflow-y: auto !important;
+        display: flex;
+        flex-direction: column;
+        width: 60% !important;
+        height: fit-content;
+    }
+
+    .second-form{
+        position: relative;
+        padding-left: 20px;
+        margin-top: 30px;
+    }
+
+    .opt{
+        padding: 10px 20px !important;
+    }
+
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px){
+    .form{
+        width: 50%;
+    }
+}
+
+
+.float{
+    overflow: hidden;
+}
+
+
+
+.image{
+    cursor: pointer;
+}
+
+
+.selectBox{
+    display: block;
+    overflow-x: hidden;
+}
+
+#selectBox{
+    width: 140px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 8px;
+    border: none;
+    outline: none;
+    background: #eee;
+    border-radius: 5px;
+}
+
+.cate-icon{
+    transition: transform .15s linear;
+}
+
+.options{
+    overflow-x: hidden;
+    z-index: 99;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #eee;
+    width: 100vw;
+    transform: scaleX(0);
+    overflow: hidden;
+    transition: transform .15s linear;
+    transform-origin: left;
+}
+
+.openOption{
+    transform: scaleX(1);
+}
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+.opt{
+    display: block;
+    font-size: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.opt:hover{
+    background: gray;
+}

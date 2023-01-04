@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <link rel="stylesheet" href="/swiper files/swiper-bundle.min.css" type="text/css">
+    <!-- fa icon script link  -->
+    <script src="https://use.fontawesome.com/7e50d7d663.js"></script>
+    <!-- end of fa icon script link  -->
+
+    <!--google font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!--end of google font link-->
+</head>
+<body>
+    
+    <main>
+
+        <div class="app-cont">
+
+            <div class="app-header">
+
+                <span class="logo">Recipe App</span>
+
+                <button class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></button>
+
+                <span class="bg_screen">
+                    <!--first form-->
+                    <form action="" id="form" class="form">
+                        <input type="text" class="searchbox" id="searchBox" placeholder="Search by name">
+                        <button class="submit" id="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                    <!--second form-->
+                    <div class="second-form">
+                        
+                        <div class="selectBox">
+                            <button id="selectBox">
+                                <span class="cate">Category</span> <span class="cate-icon"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                            </button>
+                            <span class="options">
+                                
+                            </span>
+                        </div>
+                    
+                    </div>
+                </span>
+                
+            </div>
+
+            <div class="app-body">
+
+                <div class="first-section">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <span class="remove"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                <div class="img-cont">
+                                    <img src="/imgs/1.jpg" alt="">
+                                </div>
+                                <div class="favDishName">
+                                    Ratatoullie Ratatoullie Ratatoullie
+                                </div>
+                            </div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                            <div class="swiper-slide">Slide 9</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                            <div class="swiper-slide">Slide 9</div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <div class="second-section">
+                    <div class="randDish" id="eachDish">
+                       
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="overFlow" id="overFlow">
+            
+        </div>
+
+    </main>
+
+
+    <script src="/swiper files/swiper-bundle.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
