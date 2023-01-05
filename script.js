@@ -10,6 +10,11 @@ const form = document.querySelector("#form");
 const overFlow = document.querySelector("#overFlow");
 const listIng = overFlow.querySelector(".ingredients");
 
+// ham burger items
+const main = document.querySelector("body");
+const smallDevice = document.querySelector(".bg_screen");
+const hamburger = document.querySelector(".hamburger");
+
 // calling fetch favourite meal function
 fetchFavMeal();
 
@@ -55,6 +60,7 @@ function showRanDish(mealData, isTrue = false) {
 
     const imgClick = eachDishCont.querySelector(".image");
     imgClick.addEventListener("click", () => {
+        scrollToTop();
         getDishDetails(data);
 
     })
@@ -141,6 +147,7 @@ function showFavDish(mealData) {
 
     const imgClick = favCont.querySelector(".image");
     imgClick.addEventListener("click", () => {
+        scrollToTop();
         getDishDetails(data);
     })
 
@@ -171,6 +178,7 @@ form.addEventListener("submit", (e) => {
 })
 
 submit.addEventListener("click", async() => {
+    closeNavOnClick();
     paginationCont.innerHTML = ``;
     const userInput = searchBox.value;
     searchBox.value = "";
@@ -254,6 +262,7 @@ function printOutCategory(array){
     let userChoice;
     for(i=0; i<opt.length; i++){
         opt[i].addEventListener("click", async(e) => {
+            closeNavOnClick();
             resetPageCounter();
             const mealArray = [];
             category.textContent = (e.target.textContent);
@@ -301,6 +310,7 @@ function printOutCategory(array){
                             return;
                         }else{
                             currentPage++;
+                            scrollToTop();
                             showMyDish();
                             pageNumIdentify(currentPage);
                             console.log(currentPage)
@@ -312,6 +322,7 @@ function printOutCategory(array){
                             return;
                         }else{
                             currentPage--;
+                            scrollToTop();
                             showMyDish();
                             pageNumIdentify(currentPage);
                         }
@@ -440,9 +451,6 @@ function getDishDetails(mealData) {
 
 
 // hamvurger logic
-const main = document.querySelector("body");
-const smallDevice = document.querySelector(".bg_screen");
-const hamburger = document.querySelector(".hamburger");
 hamburger.addEventListener("click", () => {
     
     if(smallDevice.classList.contains("openHam")){
@@ -489,5 +497,21 @@ function pageNumIdentify(currentPage){
     const neutral = pages[0];
     if(currentPage > 1){
         neutral.classList.remove("active")
+    }
+}
+
+// function to move page back to the top
+function scrollToTop() {
+  window.scrollTo(0, 0);
+}
+
+
+// check if btn is clicked on navbar so as to close it
+function closeNavOnClick(){
+    if(smallDevice.classList.contains("openHam")){
+        smallDevice.classList.remove("openHam");
+        main.classList.remove("float");
+        hamburger.innerHTML = `<i class="fa fa-bars" aria-hidden="true"></i>`
+        hamburger.style.color = "black"
     }
 }
