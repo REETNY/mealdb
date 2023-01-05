@@ -171,6 +171,7 @@ form.addEventListener("submit", (e) => {
 })
 
 submit.addEventListener("click", async() => {
+    paginationCont.innerHTML = ``;
     const userInput = searchBox.value;
     searchBox.value = "";
     if(userInput === "")return;
