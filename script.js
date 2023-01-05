@@ -2,6 +2,7 @@
 // App Logic
 const appBody = document.querySelector(".app-cont");
 const dishCont = document.querySelector("#eachDish");
+const paginationCont = document.querySelector(".pagination-cont");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
 const searchBox = document.querySelector("#searchBox");
 const submit = document.querySelector(".submit");
@@ -14,6 +15,10 @@ fetchFavMeal();
 
 // calling swiper js on load
 swiper();
+
+/* current page */
+let currentPage = 1;
+let numberOfItems = 12;
 
 // loop to get 8 random meal by calling the getRandomDish function
 for(let i = 1; i <= 8; i++){
@@ -172,7 +177,8 @@ submit.addEventListener("click", async() => {
 
     dishCont.innerHTML = ``;
     const mealDatas = await searchDish(userInput);
-    mealDatas.forEach( (meal) => {
+    let newArr = mealDatas.slice(numberOfItems * (currentPage - 1), numberOfItems * currentPage);
+    newArr.forEach( (meal) => {
         showRanDish(meal, false);
     })
 })
@@ -242,18 +248,78 @@ function printOutCategory(array){
 
     const opt = document.querySelectorAll(".opt");
 
+    
+
     let userChoice;
     for(i=0; i<opt.length; i++){
         opt[i].addEventListener("click", async(e) => {
+            resetPageCounter();
+            const mealArray = [];
             category.textContent = (e.target.textContent);
             userChoice = (e.target.textContent);
             dishCont.innerHTML = '';
             const mealsData = await filterByCategory(userChoice);
             mealsData.forEach( async(meal) => {
                 const dataMeal = await getFavMeal(meal.idMeal);
-                showRanDish(dataMeal);
-            });
+                mealArray.push(dataMeal);
+                if(mealArray.length === mealsData.length){
+                    let totalPages = Math.ceil(mealArray.length / 12);
+                    let newArr = mealArray.slice(numberOfItems * (currentPage - 1), numberOfItems * currentPage);
+                    newArr.forEach( data => {
+                        showRanDish(data);
+                    });
 
+                    function showMyDish(){
+                        let newArr = mealArray.slice(numberOfItems * (currentPage - 1), numberOfItems * currentPage);
+                        if(newArr === "")return;
+                        dishCont.innerHTML = ``;
+                        if(newArr.length === 0)return;
+                        newArr.forEach(data => {
+                            showRanDish(data);
+                        })
+                    }
+
+                    if(totalPages > 1){
+                        paginationCont.innerHTML = `<span data-prev class="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>`
+                        paginationCont.innerHTML += `<span data-set class="page-num active">0</span>`
+                        if(totalPages > 0){
+                            for(let i=1; i<totalPages; i++){
+                                paginationCont.innerHTML += `<span data-set class="page-num">${i}</span>`
+                            }
+                        }
+                        paginationCont.innerHTML += `<span data-next class="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>`
+                    }else{
+                        paginationCont.innerHTML = ``;
+                    }
+
+                    const nextPage = document.querySelector(".next");
+                    const prevPage = document.querySelector(".prev");
+
+                    nextPage.addEventListener("click", (e) => {
+                        if(currentPage == totalPages){
+                            return;
+                        }else{
+                            currentPage++;
+                            showMyDish();
+                            pageNumIdentify(currentPage);
+                            console.log(currentPage)
+                        }
+                    })
+
+                    prevPage.addEventListener("click", (e) => {
+                        if(currentPage == 1){
+                            return;
+                        }else{
+                            currentPage--;
+                            showMyDish();
+                            pageNumIdentify(currentPage);
+                        }
+                    })
+
+
+                }
+            });
+            
 
             if(icon.classList.contains("rotate") && options.classList.contains("openOption")){
                 icon.classList.remove("rotate")
@@ -390,3 +456,37 @@ hamburger.addEventListener("click", () => {
         hamburger.style.color = "red";
     }
 })
+
+
+// page num function
+
+function getPagenum(totalPages){
+    for(let i=0; i<=totalPages; i++){
+        paginationCont.innerHTML += `<span data-set class="page-num">${i}</span>`;
+    }
+}
+
+
+// reset counter 
+function resetPageCounter(){
+    currentPage = 1;
+}
+
+// page num identifier function
+function pageNumIdentify(currentPage){
+    const pages = document.querySelectorAll(".page-num");
+    console.log(pages)
+
+    pages.forEach(page => {
+        if(currentPage == Number(page.textContent)+1){
+            page.setAttribute("id", "active");
+        }else{
+            page.removeAttribute("id")
+        }
+    })
+
+    const neutral = pages[0];
+    if(currentPage > 1){
+        neutral.classList.remove("active")
+    }
+}

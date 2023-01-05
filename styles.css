@@ -545,3 +545,48 @@ main{
 .opt:hover{
     background: gray;
 }
+
+.pagination-cont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    column-gap: 5px;
+}
+
+.page-num{
+    font-size: 15px;
+    background: rgb(211, 208, 208);
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.prev, .next{
+    font-size: 17px;
+    font-weight: 600;
+    color: rgb(27, 27, 27);
+    cursor: pointer;
+}
+
+.prev{
+    margin-right: 5px;
+}
+
+.next{
+    margin-left: 5px;
+}
+
+.active{
+    background: red;
+}
+
+#active{
+    background-color: red;
+}
